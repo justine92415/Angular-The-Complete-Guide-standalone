@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,6 +8,10 @@ import { CommonModule } from '@angular/common';
   templateUrl: './recipe-item.component.html',
   styleUrls: ['./recipe-item.component.css']
 })
-export class RecipeItemComponent {
+export class RecipeItemComponent implements OnInit {
+  recipes = [];
+  
+  constructor() {}
 
+  ngOnInit() {}
 }
