@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Recipe } from '../../recipe.model';
 
@@ -7,12 +7,14 @@ import { Recipe } from '../../recipe.model';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './recipe-item.component.html',
-  styleUrls: ['./recipe-item.component.css']
+  styleUrls: ['./recipe-item.component.css'],
 })
 export class RecipeItemComponent implements OnInit {
-  
-  
+  @Input() recipe!: Recipe;
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('[check]', '檢查recipe', this.recipe.name);
+  }
 }
