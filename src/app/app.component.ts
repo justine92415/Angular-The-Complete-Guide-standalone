@@ -13,5 +13,10 @@ import { HeaderComponent } from './header/header.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Angular-The-Complete-Guide-standalone';
+  loadedFeauture = 'recipe';
+
+  onNavigate(feature: string) {
+    this.loadedFeauture = feature;
+  }
+  
 }
