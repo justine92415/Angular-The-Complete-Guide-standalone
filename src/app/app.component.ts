@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { BasicHighlightDirective } from './basic-highlight/basic-highlight.directive';
 import { BetterHightlightDirective } from './better-highlight/better-hightlight.directive';
+import { UnlessDirective } from './unless.directive';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule,BasicHighlightDirective,BetterHightlightDirective],
+  imports: [CommonModule,BasicHighlightDirective,BetterHightlightDirective,UnlessDirective],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
