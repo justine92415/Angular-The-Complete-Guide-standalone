@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { BasicHighlightDirective } from './basic-highlight/basic-highlight.directive';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,BasicHighlightDirective],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
