@@ -7,13 +7,13 @@ import { Directive, ElementRef, HostListener, Renderer2, inject, HostBinding } f
 export class DropdownDirective {
   // 自己寫的
   // renderer = inject(Renderer2);
-  // elRef = inject(ElementRef);
+  elRef = inject(ElementRef);
   // isOpen = false;
 
   // 課程解答
   @HostBinding('class.open') isOpen = false;
 
-  @HostListener('click') toggleOpen() {
+  @HostListener('document:click',['$event']) toggleOpen(event:Event) {
     // 自己寫的
     /* if(this.isOpen){
       this.renderer.removeClass(this.elRef.nativeElement, 'open');
@@ -23,6 +23,6 @@ export class DropdownDirective {
       this.isOpen = true;
     } */
     // 課程解答
-    this.isOpen = !this.isOpen;
+    this.isOpen = this.elRef.nativeElement.contains(event.target) ? !this.isOpen : false;
   }
 }
