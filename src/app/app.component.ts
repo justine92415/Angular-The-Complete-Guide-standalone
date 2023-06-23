@@ -1,22 +1,15 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { RecipesComponent } from './recipes/recipes.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { HeaderComponent } from './header/header.component';
+import { Component } from '@angular/core';
+import { HomeComponent } from './home/home.component';
+import { ServersComponent } from './servers/servers.component';
+import { UsersComponent } from './users/users.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet,HeaderComponent,RecipesComponent,ShoppingListComponent],
+  standalone:true,
+  imports:[CommonModule,HomeComponent,ServersComponent,UsersComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  loadedFeauture = 'recipe';
-
-  onNavigate(feature: string) {
-    this.loadedFeauture = feature;
-  }
-  
 }
