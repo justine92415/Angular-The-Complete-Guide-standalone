@@ -1,22 +1,12 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { RecipesComponent } from './recipes/recipes.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { HeaderComponent } from './header/header.component';
+
+import { DefaultComponent } from './default/default.component';
+import { SignalsComponent } from './signals/signals.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet,HeaderComponent,RecipesComponent,ShoppingListComponent],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    standalone: true,
+    imports: [DefaultComponent,SignalsComponent]
 })
-export class AppComponent {
-  loadedFeauture = 'recipe';
-
-  onNavigate(feature: string) {
-    this.loadedFeauture = feature;
-  }
-  
-}
+export class AppComponent {}
