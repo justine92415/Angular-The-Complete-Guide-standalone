@@ -25,7 +25,7 @@ export class EditServerComponent implements OnInit {
     console.log(this.route.snapshot.queryParams);
     console.log(this.route.snapshot.fragment);
     this.route.queryParams.subscribe();
-    this.route.queryParams.subscribe();
+    this.route.fragment.subscribe();
 
     this.server = this.serversService.getServer(1);
     if (this.server) {
