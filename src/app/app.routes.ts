@@ -9,6 +9,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { authGuard } from './auth.guard';
 import { authChildGuard } from './auth-child.guard';
 import { canDeactivateGuard } from './can-deactivate.guard';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,6 +27,7 @@ export const routes: Routes = [
       { path: ':id/edit', component: EditServerComponent,canDeactivate: [canDeactivateGuard] },
     ],
   },
-  { path: 'not-found', component: PageNotFoundComponent },
+  // { path: 'not-found', component: PageNotFoundComponent },
+  { path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not found!'} },
   { path: '**', redirectTo: '/not-found', pathMatch: 'full'},
 ];
