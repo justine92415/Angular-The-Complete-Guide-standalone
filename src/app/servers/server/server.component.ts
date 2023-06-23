@@ -21,11 +21,14 @@ export class ServerComponent implements OnInit {
   router = inject(Router);
 
   ngOnInit() {
-    const id = +this.route.snapshot.params['id'];
+    this.route.data.subscribe((data) => {
+      this.server = data['server'];
+    });
+    /* const id = +this.route.snapshot.params['id'];
     this.server = this.serversService.getServer(1);
     this.route.params.subscribe((params) => {
       this.server = this.serversService.getServer(+params['id']);
-    });
+    }); */
   }
 
   onEdit() {
