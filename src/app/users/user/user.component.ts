@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css'],
 })
@@ -15,9 +15,18 @@ export class UserComponent implements OnInit {
   route = inject(ActivatedRoute);
 
   ngOnInit() {
-    this.user = {
-      id: this.route.snapshot.params['id'],
-      name: this.route.snapshot.params['name'],
-    };
+    /*  this.route.paramMap.subscribe((params) => {
+      this.user = {
+        id: +params.get('id')!,
+        name: params.get('name')!,
+      };
+    }); */
+
+    this.route.params.subscribe((params) => {
+      this.user = {
+        id: +params['id']!,
+        name: params['name']!,
+      };
+    });
   }
 }
