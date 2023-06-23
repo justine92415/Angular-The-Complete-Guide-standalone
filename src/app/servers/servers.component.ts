@@ -3,12 +3,12 @@ import { ServersService } from './servers.service';
 import { CommonModule } from '@angular/common';
 import { EditServerComponent } from './edit-server/edit-server.component';
 import { ServerComponent } from './server/server.component';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-servers',
   standalone: true,
-  imports: [CommonModule, RouterLink, EditServerComponent, ServerComponent],
+  imports: [CommonModule, RouterOutlet, RouterLink, EditServerComponent, ServerComponent],
   templateUrl: './servers.component.html',
   styleUrls: ['./servers.component.css'],
 })
