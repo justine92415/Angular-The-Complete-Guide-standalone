@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ServersService } from './servers.service';
 import { CommonModule } from '@angular/common';
 import { EditServerComponent } from './edit-server/edit-server.component';
@@ -14,7 +14,7 @@ import { ServerComponent } from './server/server.component';
 export class ServersComponent implements OnInit {
   public servers: {id: number, name: string, status: string}[] = [];
 
-  constructor(private serversService: ServersService) { }
+  serversService = inject(ServersService);
 
   ngOnInit() {
     this.servers = this.serversService.getServers();
