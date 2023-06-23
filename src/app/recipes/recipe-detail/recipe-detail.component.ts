@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Recipe } from '../recipe.model';
 import { DropdownDirective } from 'src/app/shared/dropdown.directive';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -12,4 +13,10 @@ import { DropdownDirective } from 'src/app/shared/dropdown.directive';
 })
 export class RecipeDetailComponent {
   @Input() recipe!:Recipe;
+
+  recipeService = inject(RecipeService);
+
+  onAddToShoppingList(){
+    this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
+  }
 }
