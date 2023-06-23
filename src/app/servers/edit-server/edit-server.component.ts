@@ -3,7 +3,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { ServersService } from '../servers.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-server',
@@ -17,10 +17,13 @@ export class EditServerComponent implements OnInit {
   serverName = '';
   serverStatus = '';
   allowEdit = false;
+  changesSaved = false;
 
   serversService = inject(ServersService);
 
   route = inject(ActivatedRoute);
+
+  router = inject(Router);
 
   ngOnInit() {
     console.log(this.route.snapshot.queryParams);
@@ -29,8 +32,8 @@ export class EditServerComponent implements OnInit {
       (queryParams) => (this.allowEdit = queryParams['allowEdit'] === '1')
     );
     this.route.fragment.subscribe();
-
-    this.server = this.serversService.getServer(1);
+    const id = +this.route.snapshot.params['id'];
+    this.server = this.serversService.getServer(id);
     if (this.server) {
       this.serverName = this.server.name;
       this.serverStatus = this.server.status;
@@ -43,6 +46,8 @@ export class EditServerComponent implements OnInit {
         name: this.serverName,
         status: this.serverStatus,
       });
+      this.changesSaved = true;
+      this.router.navigate(['../'], { relativeTo: this.route ,queryParamsHandling: 'preserve'});
     }
   }
 }
