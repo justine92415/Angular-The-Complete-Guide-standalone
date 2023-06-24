@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RecipeItemComponent } from './recipe-item/recipe-item.component';
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-list',
@@ -16,7 +17,15 @@ export class RecipeListComponent implements OnInit {
 
   recipeService = inject(RecipeService);
 
+  router = inject(Router);
+
+  route = inject(ActivatedRoute);
+
   ngOnInit(): void {
     this.recipes = this.recipeService.getRecipes();
+  }
+
+  onNewRecipe(){
+    this.router.navigate(['new'], {relativeTo: this.route});
   }
 }
