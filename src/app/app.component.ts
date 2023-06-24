@@ -18,5 +18,5 @@ export class AppComponent {
   onNavigate(feature: string) {
     this.loadedFeauture = feature;
   }
-  
+
 }
