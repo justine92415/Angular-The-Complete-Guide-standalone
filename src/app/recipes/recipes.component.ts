@@ -16,7 +16,7 @@ import { RouterOutlet } from '@angular/router';
 export class RecipesComponent implements OnInit {
   selectedRecipe!: Recipe;
 
-  recipeService = inject(RecipeService);
+  private recipeService = inject(RecipeService);
 
   ngOnInit(): void {
     this.recipeService.recipeSelected.subscribe((recipe: Recipe) => {

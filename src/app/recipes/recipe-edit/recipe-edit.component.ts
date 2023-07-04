@@ -13,7 +13,7 @@ export class RecipeEditComponent implements OnInit{
   id!:number;
   editMode = false;
 
-  route = inject(ActivatedRoute);
+  private route = inject(ActivatedRoute);
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {

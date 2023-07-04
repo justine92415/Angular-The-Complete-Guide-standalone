@@ -16,11 +16,11 @@ export class RecipeDetailComponent implements OnInit {
   recipe!: Recipe;
   id!: number;
 
-  recipeService = inject(RecipeService);
+  private recipeService = inject(RecipeService);
 
-  route = inject(ActivatedRoute);
+  private route = inject(ActivatedRoute);
 
-  router = inject(Router);
+  private router = inject(Router);
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {

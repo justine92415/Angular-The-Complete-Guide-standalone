@@ -15,7 +15,7 @@ export class ShoppingEditComponent {
   @ViewChild('nameInput', { static: false }) nameInputRef!: ElementRef;
   @ViewChild('amountInput', { static: false }) amountInputRef!: ElementRef;
 
-  slService = inject(ShoppingListService);
+  private slService = inject(ShoppingListService);
 
   onAddItem(){
     const ingName = this.nameInputRef.nativeElement.value;

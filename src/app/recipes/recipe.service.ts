@@ -24,7 +24,7 @@ export class RecipeService {
     ),
   ];
 
-  slService = inject(ShoppingListService);
+  private slService = inject(ShoppingListService);
 
   getRecipes() {
     return this.recipes.slice();

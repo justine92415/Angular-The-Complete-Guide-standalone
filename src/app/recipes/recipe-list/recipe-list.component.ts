@@ -15,11 +15,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = [];
 
-  recipeService = inject(RecipeService);
+  private recipeService = inject(RecipeService);
 
-  router = inject(Router);
+  private router = inject(Router);
 
-  route = inject(ActivatedRoute);
+  private route = inject(ActivatedRoute);
 
   ngOnInit(): void {
     this.recipes = this.recipeService.getRecipes();

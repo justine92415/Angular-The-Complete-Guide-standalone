@@ -7,7 +7,7 @@ import { Directive, ElementRef, HostListener, Renderer2, inject, HostBinding } f
 export class DropdownDirective {
   // 自己寫的
   // renderer = inject(Renderer2);
-  elRef = inject(ElementRef);
+  private elRef = inject(ElementRef);
   // isOpen = false;
 
   // 課程解答
