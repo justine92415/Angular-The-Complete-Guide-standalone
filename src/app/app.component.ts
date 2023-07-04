@@ -8,15 +8,14 @@ import { HeaderComponent } from './header/header.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet,HeaderComponent,RecipesComponent,ShoppingListComponent],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    HeaderComponent,
+    RecipesComponent,
+    ShoppingListComponent,
+  ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  loadedFeauture = 'recipe';
-
-  onNavigate(feature: string) {
-    this.loadedFeauture = feature;
-  }
-
-}
+export class AppComponent {}
